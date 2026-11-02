@@ -250,7 +250,7 @@ ol.tk-ley li{display:flex;align-items:center;gap:6px;counter-increment:t}
 ol.tk-ley li::before{content:counter(t);width:18px;height:18px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 11px/18px var(--f-ui);text-align:center}
 .tk-lbl{font-weight:700}
 .tk-lbl.ok{color:var(--ok)} .tk-lbl.no{color:var(--bad)} .tk-lbl.pend{color:var(--warn)}
-.ticket.tk-no{opacity:.45;filter:grayscale(1)}
+.ticket.tk-vacio{display:grid;gap:6px;min-height:120px;align-content:center;color:var(--muted);border:1px dashed var(--line);box-shadow:none}
 .stat-warn{border-color:var(--warn);background:var(--warn-soft)}
 tr.row-warn td{background:var(--warn-soft)}
 select.sel-warn{border-color:var(--warn);color:var(--warn);font-weight:700}
@@ -575,62 +575,6 @@ ul.tight{margin:6px 0 0;padding-left:20px;display:grid;gap:4px}
   <p class="small muted" style="margin:0">Los almuerzos adicionales de invitados se cuentan como menú normal. «Consumo habitual» es el promedio de los últimos 8 días iguales de la semana, solo como referencia. Los avisos se cierran a las 23:59 del día anterior, por lo que la cifra del día siguiente queda firme a medianoche.</p>
 </section>
 
-<!-- ALCANCE -->
-<section class="view" id="v-alcance" data-label="Alcance y equipamiento" hidden>
-  <div><h2>Alcance de la solución UIA frente a la propuesta cotizada</h2>
-  <p class="lead">Se mantiene el flujo de la propuesta comercial de GeoVictoria (agosto 2026): habilitar personas, validar identidad, emitir ticket y reportar. Por acuerdo del equipo UIA, la persona se identifica digitando su RUT en un teclado numérico conectado a un notebook de CONAF, sin licencia ni arriendo. No se usa huella. La validación con RUT y PIN queda para una versión futura.</p></div>
-  <div class="tablebox"><table class="cmp"><thead><tr><th>Elemento</th><th>Propuesta GeoVictoria</th><th>Solución UIA (fase 1)</th></tr></thead><tbody>
-    <tr><td>Identificación</td><td>Reloj biométrico: huella, facial o tarjeta</td><td>RUT digitado en un teclado numérico USB. El personal del casino verifica el nombre impreso en el ticket. RUT + PIN en una versión futura</td></tr>
-    <tr><td>Licencia</td><td>3,5 UF mensual, tramo 51 a 100 usuarios</td><td>Sin licencia; plataforma interna de CONAF</td></tr>
-    <tr><td>Equipamiento</td><td>Box Comedor: arriendo 2,9 UF mensual, o compra 23 UF (reloj 8 UF, impresora 7 UF, gabinete 8 UF)</td><td>Compra única: notebook, teclado numérico USB e impresora térmica de 80 mm</td></tr>
-    <tr><td>Instalación</td><td>2 UF, pago único; punto de red y enchufe a 1,5 m</td><td>UIA y Depto. de Informática; se requiere el mismo punto de red y enchufe</td></tr>
-    <tr><td>Servicios</td><td>Hasta 6 tipos (desayuno, almuerzo, once, cena)</td><td>Solo almuerzo. Escalable a otros servicios en una fase posterior</td></tr>
-    <tr><td>Reglas</td><td>Horario, ubicación, turno y límites</td><td>Horario, ubicación y límite diario</td></tr>
-    <tr><td>Ticket</td><td>Nombre, identificador, servicio, hora, fecha, empresa y dirección</td><td>Encabezado con fecha, almuerzos y menú, nombre completo en mayúsculas y hora de emisión, e ID único (año y correlativo)</td></tr>
-    <tr><td>Reportes</td><td>Totales, consolidado, detallado y por marca</td><td>Estadísticas diarias, semanales, mensuales y anuales; detalle de ingresos; descuento mensual por trabajador; consumo por unidad y resumen anual</td></tr>
-    <tr><td>Integración</td><td>Sincronización con GeoVictoria Asistencia</td><td>Fuera de la fase 1. La nómina se carga desde planilla</td></tr>
-  </tbody></table></div>
-  <div class="panel" style="display:grid;gap:10px"><h3>Perfiles y permisos</h3>
-  <div class="tablebox"><table class="cmp"><thead><tr><th>Función</th><th>Jefe Casino</th><th>Jefa de Bienestar</th></tr></thead><tbody>
-    <tr><td>Estadísticas diaria, semanal, mensual y anual</td><td>Sí</td><td>Sí, cifras agregadas</td></tr>
-    <tr><td>Detalle de ingresos (nombre, RUT, hora)</td><td>Sí</td><td>No</td></tr>
-    <tr><td>Descuento por planilla</td><td>Emite el reporte mensual</td><td>Emite el reporte mensual</td></tr>
-    <tr><td>Consumo por unidad y resumen anual</td><td>Sí</td><td>Sí</td></tr>
-    <tr><td>Reimpresión, anulación y registro manual de contingencia</td><td>Sí</td><td>No</td></tr>
-    <tr><td>Anulación el mismo día de un aviso de ausencia hecho por error</td><td>Sí</td><td>No</td></tr>
-    <tr><td>Cambio de menú por excepción (ingreso nuevo, indicación médica)</td><td>Sí</td><td>No</td></tr>
-    <tr><td>Registro y anulación de cierres del casino</td><td>Sí, con alerta a la Jefa de Bienestar</td><td>Sí, con alerta al Jefe Casino</td></tr>
-    <tr><td>Nómina de habilitados y configuración</td><td>Sí</td><td>No</td></tr>
-    <tr><td>Planificación de raciones (menús, ausencias e invitados)</td><td>Sí</td><td>No</td></tr>
-    <tr><td>Publicación de la minuta semanal (cada lunes, reemplaza el correo)</td><td>Sí</td><td>No</td></tr>
-  </tbody></table></div>
-  <p class="small muted" style="margin:0">La <b>Terminal del casino</b> y la <b>Propuesta de ticket</b> quedan en un perfil aparte, «Terminal casino», que corresponde al equipo instalado en el casino: solo recibe el RUT y emite el ticket, sin acceso a estadísticas, reportes ni datos de otras personas.</p></div>
-  <div class="grid2">
-    <div class="panel"><h3>Puntos por validar con Bienestar</h3><ul class="tight">
-      <li>Universo de usuarios: el correo indica 200 personas y la cotización, 100.</li>
-      <li>Valor vigente de cada tramo y grados que comprende, y desde qué fuente se obtiene el grado de cada funcionario (Remuneraciones).</li>
-      <li>Horario del servicio y si hay más de un turno.</li>
-      <li>Quiénes tienen derecho: honorarios, personal de regiones en comisión, visitas.</li>
-      <li>Qué tecla del teclado numérico representa la K del RUT (la maqueta usa *).</li>
-      <li>Cómo verificará el personal del casino que el nombre del ticket corresponde a quien lo entrega.</li>
-      <li>Formato que requiere Remuneraciones para el descuento.</li>
-      <li>Plazo para elegir el menú del mes (la maqueta usa el día 25 del mes anterior). Los avisos de ausencia e invitaciones se aceptan hasta las 23:59 del día anterior.</li>
-      <li>Cómo ingresará el funcionario a «Mi casino» (por ejemplo, RUT y código al correo, como en el sistema de reservas).</li>
-      <li>Deber de reserva del Jefe Casino sobre los datos de los comensales y registro de quién consulta el detalle.</li>
-    </ul></div>
-    <div class="panel"><h3>Resguardos de esta versión</h3><ul class="tight">
-      <li>No se tratan datos biométricos: solo RUT, nombre, fecha y hora del almuerzo.</li>
-      <li>El nombre completo en el ticket permite al personal del casino detectar el uso de un RUT ajeno.</li>
-      <li>Quien vea un almuerzo que no tomó puede reclamarlo antes del cierre mensual, y el Jefe Casino lo anula con motivo.</li>
-      <li>Toda anulación y registro manual exige motivo y queda trazada.</li>
-      <li>Cada perfil ve solo lo necesario: la Jefa de Bienestar ve cifras agregadas y el detalle por trabajador solo en el reporte de descuento.</li>
-      <li>Se registran solo los datos necesarios para el cobro, conforme a la Ley N° 21.719.</li>
-      <li>Aviso de tratamiento de datos visible en la terminal.</li>
-      <li>Si la terminal no está disponible, opera el registro manual del Jefe Casino.</li>
-    </ul></div>
-  </div>
-  <p class="note">Las cifras en UF provienen de la propuesta comercial de GeoVictoria. El correo de solicitud menciona un costo mensual aproximado de $408.000 para 200 personas, que no coincide con el tramo cotizado; conviene aclararlo antes de comparar costos.</p>
-</section>
 <div class="panel" id="copyBox" hidden style="margin-top:20px"><div class="row spread"><h3>Texto para copiar</h3><button class="btn small" id="copyClose">Cerrar</button></div><p class="small muted">Seleccione todo (Ctrl+A) y cópielo (Ctrl+C) para pegarlo en Excel.</p><textarea id="copyTxt" rows="8" readonly></textarea></div>
 </main>
 <footer class="pie"><div class="wrap">
@@ -848,8 +792,8 @@ const nextN=()=>todays().length+1;
 const valid=(a,b)=>R.filter(r=>r.estado==="Válido"&&r.fecha>=a&&r.fecha<=b);
 
 /* ---- Perfiles y pestañas ---- */
-const PERF={casino:{nombre:"Jefe Casino",views:["estadisticas","detalle","plan","menusem","reportes","cierres","habilitados","configuracion","alcance"]},
-            bienestar:{nombre:"Jefa de Bienestar",views:["estadisticas","reportes","cierres","alcance"]},
+const PERF={casino:{nombre:"Jefe Casino",views:["estadisticas","detalle","plan","menusem","reportes","cierres","habilitados","configuracion"]},
+            bienestar:{nombre:"Jefa de Bienestar",views:["estadisticas","reportes","cierres"]},
             funcionario:{nombre:"Funcionario",views:["micasino"]},
             terminal:{nombre:"Terminal casino",views:["terminal","ticket"]}};
 let perfil="terminal";try{const s=localStorage.getItem("casino.perfil");if(PERF[s])perfil=s}catch(e){}
@@ -931,8 +875,8 @@ function press(k){
   else if(/^[0-9K]$/.test(k)&&T.rut.length<9){if(k==="K"&&T.rut.length<7)return;if(T.rut.endsWith("K"))return;T.rut+=k}
   renderScreen();
 }
-function result(kind,title,text,nombre){if(kind!=="ok")noEmite(title,!nombre&&kind==="bad");T.step="res";T.result={kind,title,text,nombre};renderScreen();clearTimeout(resetTimer);resetTimer=setTimeout(resetT,kind==="ok"?9000:7000)}
-function resetT(){clearTimeout(resetTimer);Object.assign(T,{step:"rut",rut:"",result:null,err:null});renderScreen()}
+function result(kind,title,text,nombre){if(kind!=="ok")noEmite(title,!nombre&&kind==="bad");T.step="res";T.result={kind,title,text,nombre};renderScreen();verTerminal();clearTimeout(resetTimer);resetTimer=setTimeout(resetT,kind==="ok"?9000:7000)}
+function resetT(){clearTimeout(resetTimer);Object.assign(T,{step:"rut",rut:"",result:null,err:null});renderScreen();printerIdle()}
 /* Reglas: cierre, habilitación, horario y límite diario */
 function reglas(p){
   const ci=cierreEn(TODAY,hhmm(now()));if(ci){result("warn","Casino cerrado",`${esc(horarioC(ci)==="día completo"?"Cerrado todo el día":"Cerrado "+horarioC(ci))} por ${esc(ci.motivo.toLowerCase())}. No se registran almuerzos mientras dure el cierre.`);return false}
@@ -970,7 +914,13 @@ let tkPerson=null,tkHora="12:41",tkCopia=false,tkCant=1,tkMenu="Normal",tkId="";
 function setLbl(t,estado){const l=$("#printerLbl");l.textContent=t;l.className="small tk-lbl "+(estado||"")}
 function setPrinter(lbl,estado){setLbl(lbl,estado);
   const r={n:0,id:tkId,fecha:TODAY,hora:tkPerson?tkHora:"--:--",key:tkPerson?tkPerson.key:"",cant:tkCant,menu:tkMenu,origen:"Terminal"};
-  $("#ticketOut").innerHTML=ticketHTML(r,{persona:tkPerson||{nombre:"Persona no identificada"},anot:false,copia:tkCopia,copiaHora:hhmm(now()),cls:estado==="ok"?"in":estado==="no"?"tk-no":""})}
+  if(estado==="no"){$("#ticketOut").innerHTML=`<div class="ticket tk-vacio"><div class="c"><b>Sin ticket</b></div><div class="c">${esc(lbl.replace(/^No se emite ticket · /,""))}</div><div class="c small">La impresora no emitió nada.</div></div>`;return}
+  $("#ticketOut").innerHTML=ticketHTML(r,{persona:tkPerson||{nombre:"Persona no identificada"},anot:false,copia:tkCopia,copiaHora:hhmm(now()),cls:estado==="ok"?"in":""})}
+/* Impresora en espera: se usa al abrir la terminal y al volver al inicio tras cada persona (el ticket anterior ya se retiró) */
+function printerIdle(){tkPerson=null;tkId="";tkCopia=false;setLbl("En espera · sin ticket en curso","");$("#ticketOut").innerHTML=`<div class="ticket tk-vacio"><div class="c">Esperando el siguiente RUT</div></div>`}
+/* En pantallas chicas, lleva la terminal a la vista si quedó fuera (por ejemplo, al usar el simulador que está más abajo) */
+function verTerminal(){const sc=$(".screen");if(!sc||$("#v-terminal").hidden)return;const r=sc.getBoundingClientRect();const tope=($("nav.tabs")?.getBoundingClientRect().bottom||0)+8;
+  if(r.top<tope-4||r.top>innerHeight*0.55)window.scrollTo({top:scrollY+r.top-tope,behavior:"smooth"})}
 function previewPersona(p,lbl){tkPerson=p;tkId="";tkHora=hhmm(now());tkCopia=false;const iv=invDe(p,TODAY);tkCant=iv?iv.cant:1;tkMenu=menuDe(p,TODAY);setPrinter(lbl,"pend")}
 function noEmite(motivo,sinPersona){tkId="";if(sinPersona){tkPerson=null;tkCopia=false}setPrinter("No se emite ticket · "+motivo,"no")}
 function printTicket(r,copia){tkPerson=byKey(r.key);tkId=r.id||"";tkHora=r.hora;tkCopia=!!copia;tkCant=r.cant||1;tkMenu=r.menu||"Normal";setPrinter(copia?"Copia reimpresa":"Ticket emitido","ok")}
@@ -985,7 +935,7 @@ function renderDemo(){
    `<tr><td>RUT que no está en la nómina</td><td class="mono">${fmtRut("21654321"+dv(21654321))}</td><td><button class="btn small" data-rut="${"21654321"+dv(21654321)}">Digitar RUT</button></td></tr>
     <tr><td>RUT mal digitado</td><td class="mono">${fmtRut("152348712")}</td><td><button class="btn small" data-rut="152348712">Digitar RUT</button></td></tr>`}
 $("#demoList").addEventListener("click",e=>{const b=e.target.closest("button[data-rut]");if(!b)return;
-  if($("#v-terminal").hidden)show("terminal",true);resetT();
+  if($("#v-terminal").hidden)show("terminal",true);resetT();verTerminal();
   const k=b.dataset.rut;let i=0;
   const tick=()=>{if(i<k.length){T.rut+=k[i++];renderScreen();setTimeout(tick,60)}else{checkRut();renderDemo()}};tick()});
 /* ---- Habilitados ---- */
@@ -1441,7 +1391,7 @@ bind.forEach(([s,k,f])=>$(s).addEventListener("input",e=>{cfg[k]=f?f(e.target.va
 /* ---- Reiniciar maqueta ---- */
 function reiniciar(){
   seedAll();miSem=null;msSel=null;confirmPub=false;Object.assign(cfg,copiaCfg());bind.forEach(([sel,k])=>$(sel).value=cfg[k]);
-  clearTimeout(resetTimer);resetT();previewTicket();
+  clearTimeout(resetTimer);resetT();
   Object.assign(est,{tipo:"mes",anc:TODAY});Object.assign(det,{desde:TODAY,hasta:TODAY,q:"",estado:""});$("#detQ").value="";anulando=null;
   repMes=today.getMonth()===0?`${YEAR}-01`:`${YEAR}-${pad(today.getMonth())}`;
   ["#manMsg","#nMsg","#masivaMsg"].forEach(x=>{const e=$(x);if(e)e.textContent=""});$("#nMsg").textContent="Al guardar, la persona queda habilitada y puede registrar su almuerzo con su RUT.";
@@ -1456,7 +1406,7 @@ $("#resetNo").onclick=()=>{$("#resetConfirm").hidden=true;$("#btnReset").hidden=
 $("#resetOk").onclick=()=>{$("#resetConfirm").hidden=true;$("#btnReset").hidden=false;reiniciar()};
 
 $("#ciDesde").value=TODAY;$("#ciHasta").value=TODAY;
-renderDemo();previewTicket();buildTabs();show(location.hash.slice(1),false);
+renderDemo();printerIdle();buildTabs();show(location.hash.slice(1),false);
 })();
 </script>
 
